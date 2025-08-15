@@ -43,7 +43,7 @@ import io.test.customtab.ui.theme.MyTypography
 
 
 class MainActivity : ComponentActivity() {
-    private var urlInput = mutableStateOf("https://id.uat.unico.app/process/0efb908f-0c85-47ac-915d-c5dec46810d2")
+    private var urlInput = mutableStateOf("")
     private var callbackScheme = mutableStateOf("")
     private var callbackHost = mutableStateOf("")
     private var callbackArgs = mutableMapOf<String, String>()
