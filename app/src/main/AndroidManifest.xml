@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Permissão para acesso à internet -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -25,14 +28,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
-            <intent-filter android:label="App CustomTab">
+            <!-- Deep Link customizado para callback -->
+            <intent-filter android:label="App CustomTab Callback" android:priority="999">
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="foobar"/>
-                <data android:host="success"/>
+                <data android:scheme="foobar" android:host="success"/>
+            </intent-filter>
+
+            <!-- App Link alternativo para maior compatibilidade -->
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="https"
+                      android:host="customtab.test.io"
+                      android:pathPrefix="/callback"/>
             </intent-filter>
         </activity>
     </application>
