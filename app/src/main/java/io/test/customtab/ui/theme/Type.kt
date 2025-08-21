@@ -9,13 +9,12 @@ import androidx.compose.ui.unit.sp
 import io.test.customtab.R
 
 val customFontFamily1 = FontFamily(
-    Font(R.font.atkinsonhyperlegible_regular) // Substitua pelo nome da sua fonte
+    Font(R.font.atkinsonhyperlegible_regular)
 )
 val customFontFamily2 = FontFamily(
-    Font(R.font.atkinsonhyperlegible_bold) // Substitua pelo nome da sua fonte
+    Font(R.font.atkinsonhyperlegible_bold)
 )
 
-// Set of Material typography styles to start with
 val MyTypography = Typography(
     bodyLarge = TextStyle(
         fontFamily = customFontFamily1,
@@ -24,20 +23,28 @@ val MyTypography = Typography(
         lineHeight = 24.sp,
         letterSpacing = 0.5.sp
     ),
-//    /* Other default text styles to override
+    
     titleLarge = TextStyle(
         fontFamily = customFontFamily2,
-        fontWeight = FontWeight.Normal,
+        fontWeight = FontWeight.Bold,
         fontSize = 22.sp,
         lineHeight = 28.sp,
         letterSpacing = 0.sp
     ),
-//    labelSmall = TextStyle(
-//        fontFamily = FontFamily.Default,
-//        fontWeight = FontWeight.Medium,
-//        fontSize = 11.sp,
-//        lineHeight = 16.sp,
-//        letterSpacing = 0.5.sp
-//    )
-
+    
+    bodyMedium = TextStyle(
+        fontFamily = customFontFamily1,
+        fontWeight = FontWeight.Normal,
+        fontSize = 14.sp,
+        lineHeight = 20.sp,
+        letterSpacing = 0.25.sp
+    ),
+    
+    labelSmall = TextStyle(
+        fontFamily = customFontFamily1,
+        fontWeight = FontWeight.Medium,
+        fontSize = 11.sp,
+        lineHeight = 16.sp,
+        letterSpacing = 0.5.sp
+    )
 )
