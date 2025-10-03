@@ -67,6 +67,6 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
-    //Add dependency to custom tab
+    // Custom Tabs - versão estável compatível
     implementation("androidx.browser:browser:1.8.0")
 }

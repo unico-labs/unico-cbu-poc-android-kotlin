@@ -15,7 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CustomTab"
         tools:targetApi="31">
-        <!-- add LaunchMode as SingleTop -->
+
+        <!-- MainActivity: singleTop permite receber callbacks via onNewIntent -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -24,27 +25,22 @@
             android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
             <!-- Deep Link customizado para callback -->
-            <intent-filter android:label="App CustomTab Callback" android:priority="999">
+            <intent-filter android:label="App CustomTab Callback">
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-
                 <data android:scheme="foobar" android:host="success"/>
             </intent-filter>
 
             <!-- App Link alternativo para maior compatibilidade -->
             <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-
                 <data android:scheme="https"
                       android:host="customtab.test.io"
                       android:pathPrefix="/callback"/>
