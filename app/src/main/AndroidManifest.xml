@@ -4,7 +4,7 @@
 
     <!-- Permissão para acesso à internet -->
     <uses-permission android:name="android.permission.INTERNET" />
-    
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -15,35 +15,44 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CustomTab"
         tools:targetApi="31">
-
-        <!-- MainActivity: singleTop permite receber callbacks via onNewIntent -->
+        <!-- add LaunchMode as SingleTop -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.CustomTab"
-            android:launchMode="singleTop">
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.CustomTab">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
             <!-- Deep Link customizado para callback -->
-            <intent-filter android:label="App CustomTab Callback">
+            <intent-filter
+                android:label="App CustomTab Callback"
+                android:priority="999">
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="foobar" android:host="success"/>
+
+                <data
+                    android:host="success"
+                    android:scheme="foobar" />
             </intent-filter>
 
             <!-- App Link alternativo para maior compatibilidade -->
             <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="https"
-                      android:host="customtab.test.io"
-                      android:pathPrefix="/callback"/>
+
+                <data
+                    android:host="customtab.test.io"
+                    android:pathPrefix="/callback"
+                    android:scheme="https" />
             </intent-filter>
         </activity>
     </application>
